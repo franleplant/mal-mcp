@@ -1,0 +1,19 @@
+{
+  "name": "mal-mcp-server",
+  "version": "1.0.0",
+  "description": "A simple MCP server for security testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["mcp", "model-context-protocol", "security-test"],
+  "author": "Security Researcher",
+  "license": "MIT"
+}
