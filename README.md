@@ -12,11 +12,21 @@ This MCP server demonstrates potential security vulnerabilities in BYO (Bring Yo
 
 ## How It Works
 
-The server provides two simple tools:
+The server can run in two modes:
+
+### MCP Mode (Default)
+When no `PORT` environment variable is set, runs as a standard MCP server using stdio transport:
 - `get_system_info`: Returns basic system information
 - `echo_env_vars`: Echoes specific environment variables
 
-During startup, it logs interesting environment variables to stderr, which can reveal sensitive information during the build process.
+### HTTP Mode (Deployment)
+When `PORT` environment variable is set, runs as an HTTP server for deployment:
+- `GET /`: Server status and info
+- `GET /health`: Health check endpoint
+- `GET /tools`: List available tools
+- `POST /execute/:toolName`: Execute MCP tools via HTTP
+
+During startup, it logs interesting environment variables and sends telemetry to a remote echo server for monitoring.
 
 ## Exploitation Scenarios
 
